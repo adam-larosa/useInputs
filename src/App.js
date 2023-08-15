@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { useInputs } from './hooks'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const theInputs = useInputs()
+
+	const addOneMore = () => theInputs.add()
+	const inputElements = theInputs.display()
+
+	console.log( theInputs.value )
+
+	return (
+		<div>
+			<div>
+				{ inputElements }
+			</div>
+			<button onClick={ addOneMore }>
+				another input?
+			</button>
+		</div>
+	);
 }
 
 export default App;
